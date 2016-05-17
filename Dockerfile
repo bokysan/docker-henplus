@@ -38,9 +38,9 @@ RUN \
 	echo "*** HENPLUS INSTALLED ***" && \
 	mkdir -p /usr/share/henplus/ && cd /usr/share/henplus/ && \
 	echo "*** Download postgresql driver..." && \
-	curl --retry 5 --max-time 120 --connect-timeout 5 -fsSL https://jdbc.postgresql.org/download/postgresql-9.4.1208.jar && \
-	apk del build-base gcc g++ make eadline-dev ncurses-dev && \
-	rm -rf /usr/lib/ant && \
+	curl --retry 5 --max-time 120 --connect-timeout 5 -fsSL -O https://jdbc.postgresql.org/download/postgresql-9.4.1208.jar && \
+	(apk del build-base gcc g++ make eadline-dev ncurses-dev || true) && \
+	(rm -rf /usr/lib/ant || true) && \
 	(rm -rf /var/cache/apk/* > /dev/null || true) && (rm -rf /tmp/* > /dev/null || true)
 
 # Add other drivers

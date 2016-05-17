@@ -8,5 +8,5 @@ additional drivers, add them to the `jdbc` directory.
 To use this just run the docker image with:
 
 ```bash
-  docker run -rm -it boky/henplus /usr/share/henplus
+  docker run --rm boky/henplus --help
 ```
