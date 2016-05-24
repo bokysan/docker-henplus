@@ -31,7 +31,7 @@ RUN \
 	make && make install && \
 	rm -rf /tmp/libreadline* && \
 	echo "*** libjava-readline INSTALLED *** " && \
-	cd /tmp && curl --retry 5 --max-time 120 --connect-timeout 5 -fsSL -o henplus.zip https://github.com/neurolabs/henplus/archive/master.zip&& \
+	cd /tmp && curl --retry 5 --max-time 120 --connect-timeout 5 -fsSL -o henplus.zip https://github.com/bokysan/henplus/archive/master.zip && \
 	unzip -q henplus.zip && rm henplus.zip && \
 	cd henplus* && \
 	ant jar && ant install && \

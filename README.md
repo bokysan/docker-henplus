@@ -10,3 +10,9 @@ To use this just run the docker image with:
 ```bash
   docker run --rm boky/henplus --help
 ```
+
+e.g. to connect to a database in your swarm, you would do something like this:
+
+```bash
+  docker run --net=swarm_db -it --rm boky/henplus -J jdbc:postgresql://database/sample -U sample -P demopassword
+```
