@@ -41,7 +41,9 @@ RUN \
 	curl --retry 5 --max-time 120 --connect-timeout 5 -fsSL -O https://jdbc.postgresql.org/download/postgresql-9.4.1208.jar && \
 	(apk del build-base gcc g++ make eadline-dev ncurses-dev || true) && \
 	(rm -rf /usr/lib/ant || true) && \
-	(rm -rf /var/cache/apk/* > /dev/null || true) && (rm -rf /tmp/* > /dev/null || true)
+	(rm -rf /var/cache/apk/* > /dev/null || true) && (rm -rf /tmp/* > /dev/null || true) && \
+	echo "*** Switching on UTF-8 handling..." && \
+	sed -r -i 's/^JAVA_FLAGS=$/JAVA_FLAGS="-Dfile.encoding=UTF-8 -Djava.awt.headless=true"/' /usr/bin/henplus
 
 # Add other drivers
 COPY jdbc/ /usr/share/henplus/
